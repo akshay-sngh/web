@@ -78,7 +78,9 @@
         <h3 class="text-muted" style="color: #00897B">Training successful!</h3>
 
       </div>
-      <hr/>
+
+      <hr>
+
       <div>
 
       <ul>
@@ -88,31 +90,37 @@
           <font size="4pt"><li><a href="{{url_for('uploaded_file', filename=file)}}">{{file}}</a></li></font>
         {% endfor %}
       </ul>
+
+      </div>
+
+      </div>
       {% endif %}
-      </div>
 
-      </div>
 
-      <ul>
+
+          <div class="container">
+
 
           <div class="header">
 
+
+
+            {% if errors %}
+            <font color="grey" size = "5pt" style="margin-top: 20px;"> Error report</font>
           </div>
-          <hr/>
-          <div>
-            {% if error %}
-            <font color="grey" size = "6pt"> Error report</font>
             {%for error in errors%}
           <ul>
 
-            <li><font color="#D11711" size="4pt"> {{ error }} </font></li>
+            <li><font color="#D11711" size="3pt"> {{ error }}<br> </font></li>
 
           </ul>
             {% endfor %}
-          </div>
+
+
           {% endif %}
 
 
+          </div>
 
 
   <!-- <div class="container" style="margin-left: 10pt;" >

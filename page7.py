@@ -44,9 +44,9 @@ def validateName(filename,errors):
         return False,errors
     cid = filename[1:7]
     try:
-        print 'string cid is ',cid
+        # print 'string cid is ',cid
         cid = int(cid)
-        print "corp ID is ",cid
+        # print "corp ID is ",cid
         return True,errors
     except:
         errors.append("'{}' is not a valid file name".format(filename))
@@ -177,28 +177,40 @@ def photo_uploader():
             filenames.append(filename)
     if not filenames:
         errors.append('No file provided for training')
+        print errors
         return render_template("upload.html",filenames=filenames,errors=errors)
     Ids = []
     Faces = []
     path = 'dataSet/'
     count = 0
     for file in os.listdir(path):
-        if count == 0:
-            count+=1
+
+        try:
+            img = cv2.imread(path+file)
+
+        except:
+            print "{} is not a valid file".format(path+file)
             continue
-        img = cv2.imread(path+file)
+        count+=1
         Id = file[0:6]
         print count, path+file,Id
         try:
             Ids.append(int(Id))
         except Exception,e:
+            if str(e) == "invalid literal for int() with base 10: '.DS_St'":
+                continue
             errors.append(str(e))
-        gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            continue
+        try:
+            gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        except:
+            print "{} is not a valid file".format(path+file)
+            continue
         faceNp = np.array(gray,'uint8')
         Faces.append(faceNp)
 
 
-        count+=1
+
 
 
     Ids = np.array(Ids)
@@ -210,11 +222,11 @@ def photo_uploader():
         recognizerFisher.train(Faces,Ids)
         recognizerFisher.save('recognizerData/FisherData.yml')
 
-        recognizerLBPH.update(Faces,Ids)
+        recognizerLBPH.train(Faces,Ids)
         recognizerLBPH.save('recognizerData/LBPHData.yml')
     except Exception,e:
         pass
-
+    print errors
     return render_template("upload.html",filenames=filenames,errors=errors)
 
 
