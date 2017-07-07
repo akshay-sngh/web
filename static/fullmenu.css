@@ -1,0 +1,146 @@
+#nav {
+    background-color: green;
+    font-family: verdana;
+
+}
+#nav_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+
+}
+#nav ul li {
+    display: inline-block;
+
+
+
+}
+#nav ul li:hover {
+    /*background-color: #333;*/
+    background-color: limegreen;
+    color: white;
+
+}
+#nav ul li a, visited {
+    /*color: #CCC;*/
+    color: white;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+#nav ul li:hover ul {
+    display: block;
+    background-color: limegreen;
+}
+#nav ul ul {
+
+    display: none;
+    position: absolute;
+    /*background-color: #333;*/
+
+
+    border-top: 0;
+
+}
+#nav ul ul li {
+    display: block;
+    background-color: green;
+
+}
+#nav ul ul li a:hover {
+    /*color: #699;*/
+    color: white;
+}
+
+
+#nav_wrapper>ul>li:hover{
+  transform: scale(1.1)!important;
+}
+
+
+form{
+  font-size: 30pt;
+}
+.clearfix:after {
+content: "";
+display: table;
+}
+
+.nav-wrapper {
+   width:100%;
+   background: green;
+}
+
+.nav-menu {
+   position:relative;
+   display:inline-block;
+}
+
+.nav-menu li {
+   display: inline;
+   list-style-type: none;
+}
+
+.sub-menu {
+   position: absolute;
+   display: none;
+   background: limegreen;
+}
+
+.nav-menu ul li:hover > ul {
+   display:inline-block;
+}
+
+.nav-menu > ul > li:after {
+   content: "\25BC"; /*escaped unicode for the down arrow*/
+   font-size: .8em;
+   display: inline;
+   position: relative;
+   }
+
+
+body{
+font-family: verdana;
+  counter-reset: Serial;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+hr {
+    display: block;
+    margin-top: 0;
+    margin-bottom: ;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    width: 90%;
+    border-color: limegreen;
+    border-width: 1px;
+}

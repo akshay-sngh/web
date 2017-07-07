@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#nav_wrapper>ul>li:hover{
+  transform: scale(1.1)!important;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
+}
+
+}
+::placeholder{
+  color: white;
+  font-size: 10pt;
+}
+input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #3CBC8D;
+  color: white;
+  border-radius: 12px;
+
+  hr {
+      display: block;
+      margin-top: 0;
+      margin-bottom: ;
+      margin-left: auto;
+      margin-right: auto;
+      border-style: inset;
+      width: 90%;
+      border-color: limegreen;
+      border-width: 1px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <html>
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/fullmenu.css">
+  <style>
+
+  input[type=submit] {
+      width: 20%;
+      background-color: #01af33;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  form{
+    font-size: 30pt;
+  }
+  .clearfix:after {
+  content: "";
+  display: table;
+  }
+
+  .nav-wrapper {
+     width:100%;
+     background: green;
+  }
+
+  .nav-menu {
+     position:relative;
+     display:inline-block;
+  }
+
+  .nav-menu li {
+     display: inline;
+     list-style-type: none;
+  }
+
+  .sub-menu {
+     position: absolute;
+     display: none;
+     background: limegreen;
+  }
+
+  .nav-menu ul li:hover > ul {
+     display:inline-block;
+  }
+
+  .nav-menu > ul > li:after {
+     content: "\25BC"; /*escaped unicode for the down arrow*/
+     font-size: .8em;
+     display: inline;
+     position: relative;
+     }
+
+
+  body{
+    background:url(/static/img/white_bg.png) left top repeat;
+  font-family: verdana;
+    counter-reset: Serial;
+  }
+  tr td:first-child:before
+  {
+    counter-increment: Serial;      /* Increment the Serial counter */
+    content: counter(Serial); /* Display the counter */
+  }
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  th {
+      background-color: #4CAF50;
+      color: white;
+  }
+
+  hr {
+      display: block;
+      margin-top: 0;
+      margin-bottom: ;
+      margin-left: auto;
+      margin-right: auto;
+      border-style: inset;
+      width: 90%;
+      border-color: limegreen;
+      border-width: 1px;
+  }
+}
+
+  </style>
+  </head>
+  <body link="white">
+    <!-- drop down starts from here -->
+    <div id="nav">
+
+        <div id="nav_wrapper">
+
+            <ul>
+                <li><a href="/">Home</a>
+
+                <li> <a href="#">Upload</a>
+
+                    <ul>
+                        <li><a href="/photos">Photos</a>
+                        </li>
+                        <li><a href="/excel">Excel Spreadsheet</a>
+                        <!-- </li>
+                        <li><a href="#">dropdown #1 item #3</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li> <a href="/records">Archives</a>
+
+                    <ul>
+                        <li><a href="/search_name">Search Name</a>
+                        </li>
+                        <li><a href="/search_corpID">Search corp ID</a>
+                        </li>
+                        <li><a href="/date_form">Search Joining Date</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/camera">Camera</a>
+                  </li>
+                <li> <a href="#">Account</a>
+
+                    <ul>
+                        <li><a href="/add_user">Add User</a>
+                        </li>
+                        <li><a href="/delete_user">Delete</a>
+                          <li><a href="/logout">Logout</a>
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- Nav wrapper end -->
+    </div>
+
+<h3 style="margin-left: 10pt;color: #e23134;">Delete account: <font color="green">{{ username }}</font></h3>
+<hr>
+<h4 style="margin-left: 10pt;color: #1bb738;">You will be logged out after successful removal of your account</font></h4>
+
+<form style="font-size: 12pt;margin-left:10pt;width: 40%" action="/delete_user_result"method="POST"><br>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="password" placeholder="Enter your password">
+<label for="repassword">Confirm password</label>
+  <input type="password" id="repassword" name="repassword" placeholder="Re enter password">
+  {% if error != '' %}
+  <p><font color = "red">{{ error }}</font></p>
+  {% endif %}
+  <input type="submit" value="Remove" style="font-family:verdana;background-color: #e23134;border-radius:8px;">
+</form>
+
+</body>
+</html>

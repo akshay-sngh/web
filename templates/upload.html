@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="/static/menu.css">
+
+          <style>
+          #nav_wrapper>ul>li:hover{
+            transform: scale(1.1)!important;
+          }
+          body{
+            background:url(/static/img/white_bg.png) left top repeat;
+          }
+          </style>
+  </head>
+
+
+  <body>
+
+    <div id="nav">
+
+        <div id="nav_wrapper">
+
+            <ul>
+                <li><a href="/">Home</a>
+
+                <li> <a href="#">Upload</a>
+
+                    <ul>
+                        <li><a href="/photos">Photos</a>
+                        </li>
+                        <li><a href="/excel">Excel Spreadsheet</a>
+                        <!-- </li>
+                        <li><a href="#">dropdown #1 item #3</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li> <a href="/records">Archives</a>
+
+                    <ul>
+                        <li><a href="/search_name">Search Name</a>
+                        </li>
+                        <li><a href="/search_corpID">Search corp ID</a>
+                        </li>
+                        <li><a href="/date_form">Search Joining Date</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/camera">Camera</a>
+                  </li>
+                <li> <a href="#">Account</a>
+
+                    <ul>
+                        <li><a href="/add_user">Add User</a>
+                        </li>
+                        <li><a href="/delete_user">Delete</a>
+                          <li><a href="/logout">Logout</a>
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- Nav wrapper end -->
+    </div>
+
+    <div class="container" style="margin-left: 10pt;" >
+      <div class="header">
+        {% if not filenames %}
+        <h3 class="text-muted">Training unsuccessful!</h3>
+        <font style="padding-left:10px">please check the error report for more details</font>
+        {% else %}
+
+        <h3 class="text-muted" style="color: #00897B">Training successful!</h3>
+
+      </div>
+      <hr/>
+      <div>
+
+      <ul>
+
+          <font size="4.5pt" style="padding right: 100px">The following photos have been used for training:</font><br>
+          {% for file in filenames %}
+          <font size="4pt"><li><a href="{{url_for('uploaded_file', filename=file)}}">{{file}}</a></li></font>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      </div>
+
+      </div>
+
+      <ul>
+
+          <div class="header">
+
+          </div>
+          <hr/>
+          <div>
+            {% if error %}
+            <font color="grey" size = "6pt"> Error report</font>
+            {%for error in errors%}
+          <ul>
+
+            <li><font color="#D11711" size="4pt"> {{ error }} </font></li>
+
+          </ul>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+
+
+
+  <!-- <div class="container" style="margin-left: 10pt;" >
+
+        {%for error in errors%}
+        <u>Error Report:</u>
+        <li><font color="#D11711"> {{ error }} </font></li>
+        {% endfor %}
+      </ul>
+</div> -->
+
+
+
+
+  </body>
+</html>

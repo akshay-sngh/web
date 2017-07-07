@@ -1,0 +1,39 @@
+#date
+{
+	margin-top: 10%;
+	margin-left: 40%;
+	margin-right: 30%;
+	background-color: #358912;
+	min-height: 50%;
+	max-width: 20%;
+	border-radius: 5px 5px 5px 5px;
+	padding:5px;
+}
+
+#box
+{
+	margin-left: 35px;
+}
+
+#button
+{
+	background-color: #32CD32;
+	margin-top: 5px;
+	border-radius: 0px 5px 0px 5px;
+	border: solid black;
+	opacity: 0.5;
+	margin-left: 20%;	
+	padding:3px;
+}
+
+#button:hover
+{
+	opacity: 1;
+	background-color: green;
+}
+
+
+
+
+
+

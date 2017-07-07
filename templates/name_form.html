@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/menu.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+      rel="stylesheet">
+  </head>
+<style>
+/*stylesheet of the table begins here*/
+
+#nav_wrapper>ul>li:hover{
+  transform: scale(1.1)!important;
+}
+
+
+form{
+  font-size: 30pt;
+}
+.clearfix:after {
+content: "";
+display: table;
+}
+
+.nav-wrapper {
+   width:100%;
+   background: green;
+}
+
+.nav-menu {
+   position:relative;
+   display:inline-block;
+}
+
+.nav-menu li {
+   display: inline;
+   list-style-type: none;
+}
+
+.sub-menu {
+   position: absolute;
+   display: none;
+   background: limegreen;
+}
+
+.nav-menu ul li:hover > ul {
+   display:inline-block;
+}
+
+.nav-menu > ul > li:after {
+   content: "\25BC"; /*escaped unicode for the down arrow*/
+   font-size: .8em;
+   display: inline;
+   position: relative;
+   }
+
+
+body{
+  background:url(/static/img/white_bg.png) left top repeat;
+font-family: verdana;
+  counter-reset: Serial;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+table {
+    border-collapse: collapse;
+    width: 97%;
+    margin-left: 10pt;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+/*stylesheet for the table ends here*/
+
+
+body{
+
+
+  font-family: verdana;
+}
+input {
+  margin-bottom: 10pt;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid green;
+    border-radius: 4px;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+hr {
+    display: block;
+    margin-top: 0;
+    margin-bottom: ;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    width: 90%;
+    border-color: #689F38;
+    border-width: 1px;
+}
+</style>
+<body>
+  <!-- drop down starts from here -->
+  <div id="nav">
+
+      <div id="nav_wrapper">
+
+          <ul>
+              <li><a href="/">Home</a>
+
+              <li> <a href="#">Upload</a>
+
+                  <ul>
+                      <li><a href="/photos">Photos</a>
+                      </li>
+                      <li><a href="/excel">Excel Spreadsheet</a>
+                      <!-- </li>
+                      <li><a href="#">dropdown #1 item #3</a>
+                      </li> -->
+                  </ul>
+              </li>
+              <li> <a href="/records">Archives</a>
+
+                  <ul>
+                      <li><a href="/search_name">Search Name</a>
+                      </li>
+                      <li><a href="/search_corpID">Search corp ID</a>
+                      </li>
+                      <li><a href="/date_form">Search Joining Date</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="/camera">Camera</a>
+                </li>
+              <li> <a href="#">Account</a>
+
+                  <ul>
+                      <li><a href="/add_user">Add User</a>
+                      </li>
+                      <li><a href="/delete_user">Delete</a>
+                        <li><a href="/logout">Logout</a>
+
+                  </ul>
+
+              </li>
+
+
+          </ul>
+      </div>
+      <!-- Nav wrapper end -->
+  </div>
+
+
+<div>
+  <form method = "POST" action="/search_name_result" style="margin-left: 10px;">
+    <!-- <label for="name"><h3 style="color: #4CAF50;"><font color="green">Enter name of the requested employee</font></h3></label>
+    <br> -->
+    <input type="text" id="name" style="font-family: verdana;font-size:10pt;color: green;width: 50%;border-radius:10px"name="name" placeholder="Enter name of the requested employee">
+    <input type="submit" value="Search" style="font-family:verdana;width: 10%;font-size: 10pt;background-color:green;border-radius:10px">
+
+  </form>
+  {% if status == 2 %}
+  <font font color="#D11711" size="2px" style="margin-left:20pt"> your search did not return any results</font>
+  {% endif %}
+</div>
+
+<table style="font-family:verdana;">
+  {% if status == 1 %}
+
+  <tr>
+    <th>S no.</th>
+    <th>Name</th>
+    <th>CorpID</th>
+    <th>Contact</th>
+    <th>PDOJ</th>
+    <th>ADOJ</th>
+    <th>Status</th>
+    <th>Track</th>
+    <th>Time</th>
+
+  </tr>
+  <tr>
+
+    {% for employee in Employees %}
+        <!-- for serial number -->
+        <td></td>
+        <td>{{ employee.Name }} </td>
+        <td>{{ employee.CorpID }} </td>
+        <td>{{ employee.Contact }} </td>
+        <td>{{ employee.PDOJ }} </td>
+        <td> {{ employee.ADOJ }} </td>
+        <td> {{ employee.IsJoined }} </td>
+        <td> {{ employee.Track }} </td>
+        <td> {{ employee.Time }} </td>
+
+  </tr>
+  {% endfor %}
+  {% endif %}
+
+</body>
+</html>

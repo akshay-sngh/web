@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/static/menu.css">
+
+    <style>
+      .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          /*padding: 15px 32px;*/
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          /*margin: 4px 2px;*/
+          cursor: pointer;
+      }
+      #nav_wrapper>ul>li:hover{
+        transform: scale(1.1)!important;
+      }
+      input[type=submit]{
+      font-size:12pt;
+      color:white;
+      background-color:green;
+      border: none;
+      border-radius: 6px;
+      padding-left:5px;
+      padding-right:8px;
+      padding-top: 5px;
+      padding-bottom:5px;
+      }
+
+      .mylist{
+        font-size: 13pt;
+        color: #0e6607;
+      }
+      .mylist li{
+        margin: 10px 0;
+      }
+      body{
+        background:url(/static/img/white_bg.png) left top repeat;
+      }
+      </style>
+  </head>
+
+  <body>
+    <div id="nav">
+
+        <div id="nav_wrapper">
+
+            <ul>
+                <li><a href="/">Home</a>
+
+                <li> <a href="#">Upload</a>
+
+                    <ul>
+                        <li><a href="/photos">Photos</a>
+                        </li>
+                        <li><a href="/excel">Excel Spreadsheet</a>
+                        <!-- </li>
+                        <li><a href="#">dropdown #1 item #3</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li> <a href="/records">Archives</a>
+
+                    <ul>
+                        <li><a href="/search_name">Search Name</a>
+                        </li>
+                        <li><a href="/search_corpID">Search corp ID</a>
+                        </li>
+                        <li><a href="/date_form">Search Joining Date</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/camera">Camera</a>
+                  </li>
+                <li> <a href="#">Account</a>
+
+                    <ul>
+                        <li><a href="/add_user">Add User</a>
+                        </li>
+                        <li><a href="/delete_user">Delete</a>
+                          <li><a href="/logout">Logout</a>
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- Nav wrapper end -->
+    </div>
+    <div class="container" style="margin-left: 10pt;">
+      <div class="header">
+        <h3 class="text-muted"><span style="color: #00897B">Provide employee information</h3><hr style="border: 1px solid grey">
+          <ul class="mylist">
+          <li>The first row must have columns in the order: <font color = "green"><b>| Name |	CorpID | Contact	| PDOJ | ADOJ |	Time |	IsJoined |	Track |</b></font></li>
+          <li><font color = "green"><b>PDOJ</b></font>: Proposed Date of joining</li>
+          <li><font color = "green"><b>ADOJ</b></font>: Actual Date of joining</li>
+          <li>Kindly make sure that the workbook has <b>only one spreadsheet</b></li>
+          <li>Supported formats: <font color = "grey"><i> xls, xlsx </i></font></li>
+
+
+          <li><font color="#D11711" size="3px">Dates provided on the spreadsheet must be of format: <b>mm/dd/yy</b></font></li>
+          <!-- <li><font color="#D11711" size="3px">Do not upload photos with your face tilted or poor brightness</font></li> -->
+        </ul>
+      </div>
+      <hr/>
+      <div>
+
+      <form action="excel/upload" method="post" enctype="multipart/form-data">
+        <input type="file" multiple="" name="file[]" class="span3" /><br />
+        <input type="submit"  value=" Upload">
+        <!-- <input type="submit" value="Upload"  class="span2" style="font-family:verdana;" > -->
+      </form>
+      </div>
+    </div>
+  </body>
+</html>

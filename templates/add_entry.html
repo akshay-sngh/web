@@ -1,0 +1,303 @@
+<!-- <body>
+<h2>{% for employee in Employees %}
+    <th>S No.:</strong> {{ employee.Id }} <br>
+    <strong>Name:</strong> {{ employee.Name }} <br>
+    <strong>CorpID:</strong> {{ employee.CorpID }} <br>
+    <strong>BU:</strong> {{ employee.BU }} <br>
+    <strong>Date:</strong> {{ employee.Entry }} <br>
+    <strong>Time:</strong> {{ employee.Time }} <br>
+{% endfor %}
+
+</h2>
+</body> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- for the button -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- end of button -->
+
+
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/menu.css">
+<style>
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+input[type=text] {
+
+    border: 2px solid #4CAF50;
+    border-radius: 6px;
+    background-color: white;
+    font-family: verdana;
+    padding-left: 8px;
+    padding-bottom: 4px;
+    color: white;
+    font-size: 10pt;
+    color: green;
+    padding-top: 4px;
+}
+::placeholder{
+  color: gray;
+  font-size: 10pt;
+
+}
+/*input[type=submit] {
+    width: 5%;
+    background-color: #bf201a;
+    color: white;
+    padding: 14px 40px;
+    margin:  10px 10;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10pt;
+}*/
+
+
+
+#nav_wrapper>ul>li:hover{
+  transform: scale(1.18)!important;
+}
+
+
+form{
+  font-size: 30pt;
+}
+.clearfix:after {
+content: "";
+display: table;
+}
+
+.nav-wrapper {
+   width:100%;
+   background: green;
+}
+
+.nav-menu {
+   position:relative;
+   display:inline-block;
+}
+
+.nav-menu li {
+   display: inline;
+   list-style-type: none;
+}
+
+.sub-menu {
+   position: absolute;
+   display: none;
+   background: limegreen;
+}
+
+.nav-menu ul li:hover > ul {
+   display:inline-block;
+}
+
+.nav-menu > ul > li:after {
+   content: "\25BC"; /*escaped unicode for the down arrow*/
+   font-size: .8em;
+   display: inline;
+   position: relative;
+   }
+
+
+body{
+  background:url(/static/img/white_bg.png) left top repeat;
+font-family: verdana;
+  counter-reset: Serial;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+hr {
+    display: block;
+    margin-top: 0;
+    margin-bottom: ;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    width: 90%;
+    border-color: #689F38;
+    border-width: 1px;
+}
+</style>
+</head>
+<body link="white">
+  <!-- drop down starts from here -->
+  <div id="nav">
+
+      <div id="nav_wrapper">
+
+          <ul>
+              <li><a href="/">Home</a>
+
+              <li> <a href="#">Upload</a>
+
+                  <ul>
+                      <li><a href="/photos">Photos</a>
+                      </li>
+                      <li><a href="/excel">Excel Spreadsheet</a>
+                      <!-- </li>
+                      <li><a href="#">dropdown #1 item #3</a>
+                      </li> -->
+                  </ul>
+              </li>
+              <li> <a href="/records">Archives</a>
+
+                  <ul>
+                      <li><a href="/search_name">Search Name</a>
+                      </li>
+                      <li><a href="/search_corpID">Search corp ID</a>
+                      </li>
+                      <li><a href="/date_form">Search Joining Date</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="/camera">Camera</a>
+                </li>
+              <li> <a href="#">Account</a>
+
+                  <ul>
+                      <li><a href="/add_user">Add User</a>
+                      </li>
+                      <li><a href="/delete_user">Delete</a>
+                        <li><a href="/logout">Logout</a>
+
+                  </ul>
+
+              </li>
+
+
+          </ul>
+      </div>
+      <!-- Nav wrapper end -->
+  </div>
+<!-- the menu ends here -->
+  <!-- <div class="nav-wrapper">
+     <nav class="nav-menu">
+        <ul class="clearfix">
+           <li><a href="/">Home</a></li>
+           <li><a href="/Contributors">Contributors</a>
+           <ul class="sub-menu">
+              <li><a href="/jordan">Michael Jordan</a></li>
+              <li><a href="/hawking">Stephen Hawking</a></li>
+           </ul>
+           </li>
+           <li><a href="#!">Contact Us</a>
+           <ul class="sub-menu">
+              <li><a href="mailto:bugsupport@company.com">Report a Bug</a></li>
+              <li><a href="/support">Customer Support</a></li>
+           </ul>
+           </li>
+        </ul>
+     </nav>
+  </div> -->
+
+<h2 span align = "center"style="font-family:verdana;color:#33691E;">Entry table for employees</h2><hr>
+
+<table style="font-family:verdana;">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>CorpID</th>
+    <th>Contact</th>
+    <th>PDOJ</th>
+    <th>ADOJ</th>
+    <th>Status</th>
+    <th>Track</th>
+    <th>Time</th>
+
+  </tr>
+  <tr>
+
+    {% for employee in Employees %}
+        <!-- for serial number -->
+        <td></td>
+        <td>{{ employee.Name }} </td>
+        <td>{{ employee.CorpID }} </td>
+        <td>{{ employee.Contact }} </td>
+        <td>{{ employee.PDOJ }} </td>
+        <td> {{ employee.ADOJ }} </td>
+        <td> {{ employee.IsJoined }} </td>
+        <td> {{ employee.Track }} </td>
+        <td> {{ employee.Time }} </td>
+
+  </tr>
+  {% endfor %}
+  <tr>
+<form action="/add_new_entry" method = "POST" style="display: inline;float: left;">
+  <td style="float: none"><input type="submit" class = "done" name="submit" value="+" style="width: 30px;float:left"></td>
+  <td><input type="text" name="name" placeholder="Employee name" value="" style="width: 150pt"> </td>
+  <td><input type="text" name="corpID" placeholder="Corp ID" value="" style="width: 70pt"> </td>
+  <td><input type="text" name="contact" placeholder="Contact no." value="" style="width: 90pt"> </td>
+  <td><input type="text" name="PDOJ" placeholder="Proposed DOJ" value = "" style="width: 90pt"> </td>
+  <td> <input type="text" name="ADOJ" placeholder="Actual DOJ" value = "" style="width: 80pt"></td>
+  <td> <input type="text" name="IsJoined" placeholder="Yes/No" value = "" style="width: 50pt"> </td>
+  <td> <input type="text" name="Track" placeholder="Track" value = ""style="width: 80pt"> </td>
+  <td> <input type="text" name="Time" placeholder="Time" value = "" style="width: 80pt"> </td>
+
+</form>
+  <!-- <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+</tr> -->
+</tr>
+</table>
+<br>
+<a href="/records" class="btn btn-info btn-lg" style="background-color: limegreen;font-size:8pt;float: left;width:5%;margin-left:7px;padding-left:0.5pt;padding-right: 0.5pt;border: none;">
+          <span>Done</span>
+        </a>
+</body>
+</html>

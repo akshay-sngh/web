@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+  width: 50%;
+  font-family: verdana;
+}
+input {
+  margin-bottom: 10pt;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid green;
+    border-radius: 4px;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+<h3 style="color: green;">New Entry for the LEAP joinees</h3>
+
+<div>
+  <form method = "POST" action="/new">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name...">
+
+    <label for="corpID">Corp ID</label>
+    <input type="text" id="corpID" name="corpID" placeholder="Your corporate ID">
+
+    <label for="BU">Business Unit</label>
+    <select style="font-size:12pt;"id="BU" name="BU">
+      <option value="leap">LEAP</option>
+      <option value="FCAT">Fidelity Centre of Applied Technology</option>
+      <option value="FI">Fidelity Institutional</option>
+      <option value="PI">Personal Investment</option>
+      <option value="WI">Work Place Investment</option>
+      <option value="CTG">CTG</option>
+    </select>
+  </br></br>
+    <label for="entry">Date of Entry</br>
+    <input style="font-size: 10pt;width:25  %;"type="date" name="entry">
+    </label>
+  </br></br>
+  <label for="time">Time of reporting</label>
+  <input type="time" name="time">
+
+    <input type="submit" value="Submit" style="font-family:verdana;">
+  </form>
+</div>
+
+</body>
+</html>

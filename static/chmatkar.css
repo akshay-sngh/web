@@ -1,0 +1,28 @@
+
+#box
+{
+	margin-left: 35%;
+	margin-top: 15%;
+}
+
+#button
+{
+	background-color: #32CD32;
+	margin-top: 5px;
+	border-radius: 0px 5px 0px 5px;
+	border: solid green;
+	opacity: 0.8;
+	margin-left: 16%;
+	min-width: 15%;
+	padding:3px;
+	color:white;
+}
+
+#button:hover
+{
+	opacity: 1;
+	background-color: green;
+}
+
+
+

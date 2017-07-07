@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/menu.css">
+
+
+    <style>
+    #nav_wrapper>ul>li:hover{
+      transform: scale(1.1)!important;
+    }
+
+
+    input[type=submit]{
+    font-size:12pt;
+    color:white;
+    background-color:green;
+    border: none;
+    border-radius: 6px;
+    padding-left:8px;
+    padding-right:8px;
+    padding-top: 5px;
+    padding-bottom:5px;
+    }
+    body{
+      background:url(/static/img/white_bg.png) left top repeat;
+    }
+    .mylist{
+      font-size: 13pt;
+      color: #0e6607;
+    }
+    .mylist li{
+      margin: 10px 0;
+    }
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="nav">
+
+        <div id="nav_wrapper">
+
+            <ul>
+                <li><a href="/">Home</a>
+
+                <li> <a href="#">Upload</a>
+
+                    <ul>
+                        <li><a href="/photos">Photos</a>
+                        </li>
+                        <li><a href="/excel">Excel Spreadsheet</a>
+                        <!-- </li>
+                        <li><a href="#">dropdown #1 item #3</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li> <a href="/records">Archives</a>
+
+                    <ul>
+                        <li><a href="/search_name">Search Name</a>
+                        </li>
+                        <li><a href="/search_corpID">Search corp ID</a>
+                        </li>
+                        <li><a href="/date_form">Search Joining Date</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/camera">Camera</a>
+                  </li>
+                <li> <a href="#">Account</a>
+
+                    <ul>
+                        <li><a href="/add_user">Add User</a>
+                        </li>
+                        <li><a href="/delete_user">Delete</a>
+                          <li><a href="/logout">Logout</a>
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- Nav wrapper end -->
+    </div>
+
+
+    <div class="container" style="margin-left: 10pt;">
+      <div class="header">
+        <h3 class="text-muted"><span style="color: #00897B">Upload files for training</h3><hr style="border: 1px solid grey">
+          <ul class="mylist">
+          <li>Please name the photos as '<font color = "green"><b>corpID_photo#</b></font>'</li>
+          <li>It is recommended that your face must cover <b>at least 70% </b>of the photo</li>
+          <li>Kindly make sure that the length and width of the photo are approximately equal to each other</li>
+          <li>Supported formats: <font color = "grey"><i> jpg, jpeg, png, tif </i></font></li>
+          <li>You can use  <a href="http://pdftoimage.com/"><font color = "limegreen">this site</font></a> to convert pdf to images</li>
+
+          <li><font color="#D11711" size="3px">Do not upload only 1 photo if you're face has not been trained before</font></li>
+          <li><font color="#D11711" size="3px">Do not upload photos with your <b>face tilted</b> or with <b>poor lighting</b></font></li>
+        </ul>
+      </div>
+
+      <div>
+        <hr>
+
+      <form action="photos/upload" method="post" enctype="multipart/form-data">
+
+        <input type="file" multiple="" name="file[]" class="span3" size="100" class = "inputfile"/><br />
+        <!-- <input  type="submit" value="Train"  class="span2"> -->
+        <!-- <input type="text" style="width:500px;font-size:13pt;padding:2px; border:3px solid green" value="example text"> -->
+<input type="submit"  value=" Train " >
+      </form>
+      </div>
+    </div>
+  </body>
+</html>
